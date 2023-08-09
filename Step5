@@ -1,0 +1,21 @@
+# Generating SQL query to create a view with the transformed data
+
+create_view_query = """
+-- Create a view with the transformed data
+CREATE VIEW transformed_happiness_data AS
+SELECT
+    h.Region,
+    AVG(h.HappinessScore) AS AvgHappinessScorePerRegion,
+    d.Country,
+    d.TourismScore,
+    d.CulturalHeritageRating
+FROM happiness_data_2015 AS h
+LEFT JOIN dummy_data AS d ON h.Country = d.Country
+GROUP BY h.Region, d.Country, d.TourismScore, d.CulturalHeritageRating
+ORDER BY h.Region;
+"""
+
+create_view_query
+
+#explanation
+# This SQL code creates a special "view" named "transformed_happiness_data" that acts like a snapshot of the transformed data. This data comes from the earlier query that combined details from the happiness_data_2015 and dummy_data tables. The view allows you to access this combined information easily, as if it were its own table. This is particularly useful because you don't need to repeat the complex query whenever you want to use this specific data. It's a way to simplify accessing and analyzing the transformed data without running the query every time.
