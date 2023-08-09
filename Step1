@@ -1,0 +1,12 @@
+import os
+import pandas as pd
+
+primary_data_2015 = pd.read_csv(os.path.join( '/content/2015.csv'))
+
+# Displaying the first few rows of the 2015 dataset
+print(primary_data_2015.head())
+
+#Explaination
+#It first imports two tools: os and pandas. os helps with working with files and directories, while pandas is used for handling and analyzing data.
+
+#The code then uses the pd.read_csv() function to read the content of a CSV file named "2015.csv" located in a specific directory. This function loads the data into a special kind of table called a Data Frame.
