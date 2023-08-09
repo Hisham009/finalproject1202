@@ -1,0 +1,25 @@
+# Creating a dummy dataset with hypothetical data for each country in the 2015 dataset
+
+import numpy as np
+
+# Randomly generate data for the dummy dataset
+np.random.seed(42)  # for reproducibility
+tourism_score = np.random.rand(len(primary_data_2015)) * 10  # Random tourism scores between 0 and 10
+cultural_heritage_rating = np.random.randint(1, 6, len(primary_data_2015))  # Random ratings between 1 and 5
+
+# Creating the dummy dataset
+dummy_data = pd.DataFrame({
+    'Country': primary_data_2015['Country'],
+    'Tourism Score': tourism_score,
+    'Cultural Heritage Rating': cultural_heritage_rating
+})
+
+# Displaying the first few rows of the dummy dataset
+dummy_data.head()
+
+#Explanation
+#The code starts by importing a library called "numpy," which helps with numerical operations in Python. It also uses the "pandas" library, which is great for working with data.
+
+#Next, it generates random data for a new dataset. This random data represents hypothetical tourism scores and cultural heritage ratings for each country. By setting a "seed" of 42, we ensure that the randomness can be reproduced in the future if needed.
+
+#The code then calculates random tourism scores between 0 and 10 for each country by using the "np.random.rand()" function. Similarly, it calculates random cultural heritage ratings between 1 and 5 using the "np.random.randint()" function.
