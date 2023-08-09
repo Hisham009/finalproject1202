@@ -1,0 +1,17 @@
+# Generating SQL queries for quality checks to identify any null or missing values in both tables
+
+quality_check_primary = """
+-- Quality Check for happiness_data_2015 table
+SELECT
+    'happiness_data_2015' AS TableName,
+    'Country' AS ColumnName,
+    COUNT(*) AS MissingValues
+FROM happiness_data_2015
+WHERE Country IS NULL
+UNION
+SELECT
+    'happiness_data_2015' AS TableName,
+
+
+#explanation  
+#These SQL queries are designed to check if there are any missing values (represented as NULL) in specific columns of two tables: happiness_data_2015 and dummy_data. The first query focuses on the happiness_data_2015 table and examines the 'Country' and 'Region' columns for missing values. The second query concentrates on the dummy_data table and checks the 'Country' and 'TourismScore' columns. These queries provide a count of how many missing values are present in each column, helping to identify areas in the data where information might be incomplete. This process aids in ensuring data quality and identifying potential issues that need attention.
