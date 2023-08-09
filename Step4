@@ -1,0 +1,21 @@
+# Generating SQL queries for transformations
+
+transformation_query = """
+-- Aggregation and JOIN operation
+SELECT
+    h.Region,
+    AVG(h.HappinessScore) AS AvgHappinessScorePerRegion,
+    d.Country,
+    d.TourismScore,
+    d.CulturalHeritageRating
+FROM happiness_data_2015 AS h
+LEFT JOIN dummy_data AS d ON h.Country = d.Country
+GROUP BY h.Region, d.Country, d.TourismScore, d.CulturalHeritageRating
+ORDER BY h.Region;
+"""
+
+transformation_query
+
+
+#Explanation:
+#This SQL query takes data from two tables, happiness_data_2015 and dummy_data, and combines them to provide useful information. It groups the data by regions and calculates the average happiness score per region. Additionally, it brings in data from the dummy_data table, including the country's name, tourism score, and cultural heritage rating. This query connects the two tables based on the country 
